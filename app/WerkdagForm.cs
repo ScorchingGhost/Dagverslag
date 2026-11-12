@@ -29,7 +29,7 @@ internal sealed class WerkdagForm : Form
 
     public WerkdagForm()
     {
-        Text = "Dagverslag 1.0";
+        Text = "Dagverslag";
         StartPosition = FormStartPosition.CenterScreen;
         MinimumSize = new Size(860, 760);
         WindowState = FormWindowState.Maximized;

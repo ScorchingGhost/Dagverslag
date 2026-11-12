@@ -2,11 +2,14 @@
 
 ## Dagverslag downloaden en starten
 
-Open [Releases](https://github.com/ScorchingGhost/LucasBullshit/releases/latest) en
+Open [Releases](https://github.com/ScorchingGhost/Dagverslag/releases/latest) en
 download onder **Assets** het bestand `Dagverslag-windows-x64.zip`. Kies niet voor
 **Source code (zip)** of **Source code (tar.gz)**; dat zijn alleen de bronbestanden en
-bevatten de app niet. Pak de release-ZIP uit en start `Dagverslag.exe`. Laat de map
-`media` naast het programma staan. Je hoeft geen .NET te installeren.
+bevatten de app niet. Pak de release-ZIP uit en dubbelklik op
+`Dagverslag installeren.bat`. De installer zet de app in je lokale
+`AppData\Local\Programs\Dagverslag`-map en plaatst een snelkoppeling met het appicoon
+op je bureaublad. Daarna kun je Dagverslag gewoon vanaf je bureaublad openen. Je hoeft
+geen .NET te installeren.
 
 ## Vanuit de broncode starten
 

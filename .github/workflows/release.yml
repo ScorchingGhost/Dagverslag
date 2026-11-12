@@ -38,12 +38,14 @@ jobs:
           New-Item -ItemType Directory -Force -Path (Join-Path $package "media") | Out-Null
           Copy-Item .\publish\Dagverslag.exe $package
           Copy-Item .\app\media\logo.png (Join-Path $package "media\logo.png")
+          Copy-Item .\app\Install-Dagverslag.ps1 $package
+          Copy-Item ".\app\Dagverslag installeren.bat" $package
           @"
           DAGVERSLAG INSTALLEREN
 
           1. Pak Dagverslag-windows-x64.zip uit.
-          2. Laat Dagverslag.exe en de map media bij elkaar staan.
-          3. Start Dagverslag.exe.
+          2. Dubbelklik op 'Dagverslag installeren.bat'.
+          3. De installer plaatst Dagverslag op je computer en zet een snelkoppeling op het bureaublad.
 
           De app is zelfstandig en vereist geen aparte .NET-installatie.
           Dagverslagen worden opgeslagen in Documenten\Lucas erf onderhoud\Dagverslagen.

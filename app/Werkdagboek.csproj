@@ -5,6 +5,7 @@
     <AssemblyName>Dagverslag</AssemblyName>
     <AssemblyTitle>Dagverslag</AssemblyTitle>
     <Product>Dagverslag</Product>
+    <ApplicationIcon>media\dagverslag.ico</ApplicationIcon>
     <Version>1.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
