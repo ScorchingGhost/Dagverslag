@@ -2,10 +2,11 @@
 
 ## Dagverslag downloaden en starten
 
-Open [Releases](https://github.com/ScorchingGhost/LucasBullshit/releases) en download
-`Dagverslag-windows-x64.zip` van de nieuwste release. Pak het ZIP-bestand uit en start
-`Dagverslag.exe`. De app en het logo moeten samen in de uitgepakte map blijven. Je hoeft
-geen .NET te installeren.
+Open [Releases](https://github.com/ScorchingGhost/LucasBullshit/releases/latest) en
+download onder **Assets** het bestand `Dagverslag-windows-x64.zip`. Kies niet voor
+**Source code (zip)** of **Source code (tar.gz)**; dat zijn alleen de bronbestanden en
+bevatten de app niet. Pak de release-ZIP uit en start `Dagverslag.exe`. Laat de map
+`media` naast het programma staan. Je hoeft geen .NET te installeren.
 
 ## Vanuit de broncode starten
 
@@ -31,5 +32,6 @@ overschreven.
 
 ## Een nieuwe GitHub-release maken
 
-Push een versietag, bijvoorbeeld `v1.0.0`. GitHub Actions bouwt dan automatisch de
+Push een versietag, bijvoorbeeld `v1.0.1`, of start de workflow **Windows-release**
+handmatig via GitHub Actions en geef een versienummer op. GitHub Actions bouwt dan de
 zelfstandige Windows-app en voegt `Dagverslag-windows-x64.zip` toe aan de GitHub-release.

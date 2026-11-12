@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Versienummer voor de GitHub-release, bijvoorbeeld v1.0.1
+        required: true
+        default: v1.0.1
 
 permissions:
   contents: write
@@ -32,11 +38,23 @@ jobs:
           New-Item -ItemType Directory -Force -Path (Join-Path $package "media") | Out-Null
           Copy-Item .\publish\Dagverslag.exe $package
           Copy-Item .\app\media\logo.png (Join-Path $package "media\logo.png")
+          @"
+          DAGVERSLAG INSTALLEREN
+
+          1. Pak Dagverslag-windows-x64.zip uit.
+          2. Laat Dagverslag.exe en de map media bij elkaar staan.
+          3. Start Dagverslag.exe.
+
+          De app is zelfstandig en vereist geen aparte .NET-installatie.
+          Dagverslagen worden opgeslagen in Documenten\Lucas erf onderhoud\Dagverslagen.
+          "@ | Set-Content -Path (Join-Path $package "LEESMIJ.txt") -Encoding utf8
           Compress-Archive -Path (Join-Path $package "*") -DestinationPath .\Dagverslag-windows-x64.zip -Force
 
       - name: GitHub-release publiceren
         uses: softprops/action-gh-release@v2
         with:
-          name: Dagverslag ${{ github.ref_name }}
+          tag_name: ${{ inputs.version || github.ref_name }}
+          target_commitish: ${{ github.sha }}
+          name: Dagverslag ${{ inputs.version || github.ref_name }}
           generate_release_notes: true
           files: Dagverslag-windows-x64.zip
