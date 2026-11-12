@@ -1,0 +1,42 @@
+name: Windows-release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+
+    steps:
+      - name: Broncode ophalen
+        uses: actions/checkout@v4
+
+      - name: .NET installeren
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Windows-app bouwen
+        shell: pwsh
+        run: dotnet publish .\app\Werkdagboek.csproj --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true --output .\publish
+
+      - name: Downloadpakket maken
+        shell: pwsh
+        run: |
+          $package = Join-Path $env:GITHUB_WORKSPACE "Dagverslag"
+          New-Item -ItemType Directory -Force -Path (Join-Path $package "media") | Out-Null
+          Copy-Item .\publish\Dagverslag.exe $package
+          Copy-Item .\app\media\logo.png (Join-Path $package "media\logo.png")
+          Compress-Archive -Path (Join-Path $package "*") -DestinationPath .\Dagverslag-windows-x64.zip -Force
+
+      - name: GitHub-release publiceren
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Dagverslag ${{ github.ref_name }}
+          generate_release_notes: true
+          files: Dagverslag-windows-x64.zip

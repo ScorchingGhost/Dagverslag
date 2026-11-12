@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>Dagverslag</AssemblyName>
+    <AssemblyTitle>Dagverslag</AssemblyTitle>
+    <Product>Dagverslag</Product>
+    <Version>1.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="media\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
